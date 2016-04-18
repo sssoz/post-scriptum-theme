@@ -1,0 +1,1311 @@
+/*
+Theme Name: Post-Scriptum
+Theme URI: http://wordpress.org/themes/post-scriptum
+Author: Sophy Ouch
+Author URI: http://www.sophy.space
+Description: A custom, responsive theme for an academic literature journal, Post-Scriptum.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: black, gray, silver, white, responsive-layout, one-column, featured-images
+Text Domain: post-scriptum
+*/
+
+@charset "UTF-8";
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS and IE text size adjust after device orientation change,
+ *    without disabling user zoom.
+ */
+html {
+  font-family: sans-serif;
+  /* 1 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+}
+
+/**
+ * Remove default margin.
+ */
+body {
+  margin: 0;
+}
+
+/* HTML5 display definitions
+   ========================================================================== */
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  /* 1 */
+  vertical-align: baseline;
+  /* 2 */
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/10/11, Safari, and Firefox < 22.
+ */
+[hidden],
+template {
+  display: none;
+}
+
+/* Links
+   ========================================================================== */
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+a {
+  background-color: transparent;
+}
+
+/**
+ * Improve readability of focused elements when they are also in an
+ * active/hover state.
+ */
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+b,
+strong {
+  font-weight: bold;
+}
+
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari, and Chrome.
+ */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* Embedded content
+   ========================================================================== */
+/**
+ * Remove border when inside `a` element in IE 8/9/10.
+ */
+img {
+  border: 0;
+}
+
+/**
+ * Correct overflow not hidden in IE 9/10/11.
+ */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Grouping content
+   ========================================================================== */
+/**
+ * Address margin not present in IE 8/9 and Safari.
+ */
+figure {
+  margin: 1em 40px;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+hr {
+  box-sizing: content-box;
+  height: 0;
+}
+
+/**
+ * Contain overflow in all browsers.
+ */
+pre {
+  overflow: auto;
+}
+
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+/* Forms
+   ========================================================================== */
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ */
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+  margin: 0;
+  /* 3 */
+}
+
+/**
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ */
+button {
+  overflow: visible;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+button,
+select {
+  text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+input {
+  line-height: normal;
+}
+
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome.
+ */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  box-sizing: content-box;
+  /* 2 */
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * Safari (but not Chrome) clips the cancel button when the search input has
+ * padding (and `textfield` appearance).
+ */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * Remove default vertical scrollbar in IE 8/9/10/11.
+ */
+textarea {
+  overflow: auto;
+}
+
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+optgroup {
+  font-weight: bold;
+}
+
+/* Tables
+   ========================================================================== */
+/**
+ * Remove most spacing between table cells.
+ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+/**
+ * Set up a decent box model on the root element
+ */
+html {
+  box-sizing: border-box;
+}
+
+/**
+ * Make all elements from the DOM inherit from the parent box-sizing
+ * Since `*` has a specificity of 0, it does not override the `html` value
+ * making all elements inheriting from the root box-sizing value
+ * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* Sans */
+@font-face {
+  font-family: 'Maison Neue Book Italic';
+  src: url("fonts/MaisonNeue-BookItalic.eot");
+  src: url("fonts/MaisonNeue-BookItalic.eot?#iefix") format("embedded-opentype"), url("fonts/MaisonNeue-BookItalic.woff") format("woff"), url("fonts/MaisonNeue-BookItalic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Maison Neue Bold Italic';
+  src: url("fonts/MaisonNeue-BoldItalic.eot");
+  src: url("fonts/MaisonNeue-BoldItalic.eot?#iefix") format("embedded-opentype"), url("fonts/MaisonNeue-BoldItalic.woff") format("woff"), url("fonts/MaisonNeue-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Maison Neue Book';
+  src: url("fonts/MaisonNeue-Book.eot");
+  src: url("fonts/MaisonNeue-Book.eot?#iefix") format("embedded-opentype"), url("fonts/MaisonNeue-Book.woff") format("woff"), url("fonts/MaisonNeue-Book.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Maison Neue Bold';
+  src: url("fonts/MaisonNeue-Bold.eot");
+  src: url("fonts/MaisonNeue-Bold.eot?#iefix") format("embedded-opentype"), url("fonts/MaisonNeue-Bold.woff") format("woff"), url("fonts/MaisonNeue-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+/* Serif */
+@font-face {
+  font-family: 'Portrait Bold';
+  src: url("fonts/Portrait-Bold.eot");
+  src: url("fonts/Portrait-Bold.eot?#iefix") format("embedded-opentype"), url("fonts/Portrait-Bold.woff") format("woff"), url("fonts/Portrait-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Portrait Regular Italic';
+  src: url("fonts/PortraitText-RegularItalic.eot");
+  src: url("fonts/PortraitText-RegularItalic.eot?#iefix") format("embedded-opentype"), url("fonts/PortraitText-RegularItalic.woff") format("woff"), url("fonts/PortraitText-RegularItalic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Portrait Regular';
+  src: url("fonts/PortraitText-Regular.eot");
+  src: url("fonts/PortraitText-Regular.eot?#iefix") format("embedded-opentype"), url("fonts/PortraitText-Regular.woff") format("woff"), url("fonts/PortraitText-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Portrait Bold Italic';
+  src: url("fonts/Portrait-BoldItalic.eot");
+  src: url("fonts/Portrait-BoldItalic.eot?#iefix") format("embedded-opentype"), url("fonts/Portrait-BoldItalic.woff") format("woff"), url("fonts/Portrait-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}
+/**
+ * Basic typography style for copy text
+ */
+body {
+  color: #222;
+  font-family: "Portrait Regular", Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+  font-size: 22px;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 3.157em;
+}
+
+h2 {
+  font-size: 2.369em;
+}
+
+h3 {
+  font-size: 1.777em;
+}
+
+h4 {
+  font-size: 1.333em;
+}
+
+small {
+  font-size: 0.75em;
+}
+
+em {
+  font-family: "Portrait Regular Italic", Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+}
+em b, em strong {
+  font-family: "Portrait Bold Italic", Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+}
+
+b, strong {
+  font-family: "Portrait Bold", Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+}
+b em, strong em {
+  font-family: "Portrait Bold Italic", Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+}
+
+/**
+ * Basic styles for links
+ */
+a {
+  color: #222;
+  text-decoration: none;
+}
+a:hover, a:active, a:focus {
+  color: #555555;
+  text-decoration: none;
+}
+
+/**
+ * Basic styles for paragraphs
+ */
+p {
+  margin-bottom: 1em;
+}
+p a {
+  color: #CAB6AF;
+}
+p a:hover, p a:active, p a:focus {
+  color: #988983;
+  text-decoration: underline;
+}
+
+blockquote {
+  font-family: "Maison Neue Book Italic", "Helvetica Neue Light Italic", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 0.75em;
+  line-height: 1.75;
+  color: #595959;
+  margin: 1em 0 1.5em 1.5em;
+  padding: 0;
+  padding-left: 1.5em;
+  border-left: 1px solid #999;
+}
+blockquote em {
+  font-family: "Maison Neue Book", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+blockquote em b, blockquote em strong {
+  font-family: "Maison Neue Bold", "Helvetica Neue Bold", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+blockquote b, blockquote strong {
+  font-family: "Maison Neue Bold", "Helvetica Neue Bold", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+blockquote b em, blockquote strong em {
+  font-family: "Maison Neue Bold", "Helvetica Neue Bold", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+hr {
+  border-top: 1px solid #E0E0E0;
+}
+
+.meta {
+  font-family: "Maison Neue Book", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+.meta em {
+  font-family: "Maison Neue Book Italic", "Helvetica Neue Light Italic", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+.meta em b, .meta em strong {
+  font-family: "Maison Neue Bold Italic", "Helvetica Neue Bold Italic", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+.meta b, .meta strong {
+  font-family: "Maison Neue Bold", "Helvetica Neue Bold", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+.meta b em, .meta strong em {
+  font-family: "Maison Neue Bold Italic", "Helvetica Neue Bold Italic", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+.meta-number {
+  font-family: "Maison Neue Bold", "Helvetica Neue Bold", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+.meta-date {
+  color: #999;
+  font-size: 0.75em;
+  text-transform: uppercase;
+}
+
+.meta-short_preview {
+  font-size: 0.85em;
+  color: #595959;
+}
+
+.meta-subtitle {
+  font-size: 0.85em;
+  margin: 0.85em 0;
+}
+
+/**
+ * Clear inner floats
+ */
+.clearfix::after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+/**
+ * Main content containers
+ * 1. Make the container full-width with a maximum width
+ * 2. Center it in the viewport
+ * 3. Leave some space on the edges, especially valuable on small screens
+ */
+.container {
+  max-width: 1200px;
+  /* 1 */
+  margin-left: auto;
+  /* 2 */
+  margin-right: auto;
+  /* 2 */
+  padding-left: 20px;
+  /* 3 */
+  padding-right: 20px;
+  /* 3 */
+  width: 100%;
+  /* 1 */
+}
+
+/**
+ * Hide text while making it readable for screen readers
+ * 1. Needed in WebKit-based browsers because of an implementation bug;
+ *    See: https://code.google.com/p/chromium/issues/detail?id=457146
+ */
+.hide-text {
+  overflow: hidden;
+  padding: 0;
+  /* 1 */
+  text-indent: 101%;
+  white-space: nowrap;
+}
+
+/**
+ * Hide element while making it readable for screen readers
+ * Shamelessly borrowed from HTML5Boilerplate:
+ * https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css#L119-L133
+ */
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.img-responsive {
+  width: 100%;
+}
+
+.img-banner-overlay {
+  width: 100%;
+  padding: 0.25em;
+  background-color: rgba(255, 255, 255, 0.55);
+  position: absolute;
+  top: 10px;
+  font-family: "Maison Neue Book", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 1em;
+  color: #595959;
+}
+
+/* Single-column usually reserved for doc units */
+@font-face {
+  font-family: 'icomoon';
+  src: url("fonts/icomoon.eot?kbodl1");
+  src: url("fonts/icomoon.eot?kbodl1#iefix") format("embedded-opentype"), url("fonts/icomoon.ttf?kbodl1") format("truetype"), url("fonts/icomoon.woff?kbodl1") format("woff"), url("fonts/icomoon.svg?kbodl1#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-align-justify:before {
+  content: "\e026";
+}
+
+.icon-align-left:before {
+  content: "\e027";
+}
+
+.icon-align-center:before {
+  content: "\e028";
+}
+
+.icon-align-right:before {
+  content: "\e029";
+}
+
+.icon-search:before {
+  content: "\e036";
+}
+
+.icon-reply:before {
+  content: "\e039";
+}
+
+.icon-skip-back:before {
+  content: "\e050";
+}
+
+.icon-rewind:before {
+  content: "\e051";
+}
+
+.icon-fast-forward:before {
+  content: "\e055";
+}
+
+.icon-skip-forward:before {
+  content: "\e056";
+}
+
+.icon-repeat:before {
+  content: "\e058";
+}
+
+.icon-arrow-left:before {
+  content: "\e094";
+}
+
+.icon-arrow-right:before {
+  content: "\e095";
+}
+
+.icon-arrow-up:before {
+  content: "\e096";
+}
+
+.icon-arrow-down:before {
+  content: "\e097";
+}
+
+.icon-maximize:before {
+  content: "\e112";
+}
+
+.icon-minimize:before {
+  content: "\e113";
+}
+
+.icon-plus:before {
+  content: "\e114";
+}
+
+.icon-minus:before {
+  content: "\e115";
+}
+
+.icon-check:before {
+  content: "\e116";
+}
+
+.icon-cross:before {
+  content: "\e117";
+}
+
+.icon-menu:before {
+  content: "\e120";
+}
+
+.icon-inbox:before {
+  content: "\e122";
+}
+
+.icon-outbox:before {
+  content: "\e123";
+}
+
+.icon-open:before {
+  content: "\e128";
+}
+
+.icon-mobile:before {
+  content: "\e000";
+}
+
+.icon-laptop:before {
+  content: "\e001";
+}
+
+.icon-desktop:before {
+  content: "\e002";
+}
+
+.icon-tablet:before {
+  content: "\e003";
+}
+
+.icon-phone:before {
+  content: "\e004";
+}
+
+.icon-document:before {
+  content: "\e005";
+}
+
+.icon-documents:before {
+  content: "\e006";
+}
+
+.icon-search-doc:before {
+  content: "\e007";
+}
+
+.icon-clipboard:before {
+  content: "\e008";
+}
+
+.icon-newspaper:before {
+  content: "\e009";
+}
+
+.icon-picture:before {
+  content: "\e00f";
+}
+
+.icon-pictures:before {
+  content: "\e010";
+}
+
+.icon-camera:before {
+  content: "\e012";
+}
+
+.icon-printer:before {
+  content: "\e013";
+}
+
+.icon-toolbox:before {
+  content: "\e014";
+}
+
+.icon-bargraph:before {
+  content: "\e018";
+}
+
+.icon-expand:before {
+  content: "\e01a";
+}
+
+.icon-ribbon:before {
+  content: "\e01e";
+}
+
+.icon-hourglass:before {
+  content: "\e01f";
+}
+
+.icon-megaphone:before {
+  content: "\e021";
+}
+
+.icon-shield:before {
+  content: "\e022";
+}
+
+.icon-flag:before {
+  content: "\e024";
+}
+
+.icon-map:before {
+  content: "\e025";
+}
+
+.icon-puzzle:before {
+  content: "\e02a";
+}
+
+.icon-envelope:before {
+  content: "\e02b";
+}
+
+.icon-telescope:before {
+  content: "\e02c";
+}
+
+.icon-gears:before {
+  content: "\e02d";
+}
+
+.icon-key:before {
+  content: "\e02e";
+}
+
+.icon-paperclip:before {
+  content: "\e02f";
+}
+
+.icon-attachment:before {
+  content: "\e030";
+}
+
+.icon-lightbulb:before {
+  content: "\e031";
+}
+
+.icon-layers:before {
+  content: "\e032";
+}
+
+.icon-pencil:before {
+  content: "\e033";
+}
+
+.icon-tools:before {
+  content: "\e034";
+}
+
+.icon-scissors:before {
+  content: "\e037";
+}
+
+.icon-magnifying-glass:before {
+  content: "\e038";
+}
+
+.icon-linegraph:before {
+  content: "\e03a";
+}
+
+.icon-caution:before {
+  content: "\e03d";
+}
+
+.icon-recycle:before {
+  content: "\e03e";
+}
+
+.icon-anchor:before {
+  content: "\e03f";
+}
+
+.icon-profile-male:before {
+  content: "\e040";
+}
+
+.icon-profile-female:before {
+  content: "\e041";
+}
+
+.icon-wine:before {
+  content: "\e043";
+}
+
+.icon-hotairballoon:before {
+  content: "\e044";
+}
+
+.icon-globe:before {
+  content: "\e045";
+}
+
+.icon-genius:before {
+  content: "\e046";
+}
+
+.icon-map-pin:before {
+  content: "\e047";
+}
+
+.icon-chat:before {
+  content: "\e049";
+}
+
+.icon-heart:before {
+  content: "\e04a";
+}
+
+.icon-cloud:before {
+  content: "\e04b";
+}
+
+.icon-upload:before {
+  content: "\e04c";
+}
+
+.icon-download:before {
+  content: "\e04d";
+}
+
+.icon-target:before {
+  content: "\e04e";
+}
+
+.icon-piechart:before {
+  content: "\e052";
+}
+
+.icon-global:before {
+  content: "\e053";
+}
+
+.icon-compass:before {
+  content: "\e054";
+}
+
+.icon-alarmclock:before {
+  content: "\e059";
+}
+
+.icon-refresh:before {
+  content: "\e05a";
+}
+
+header.page-header {
+  margin: 0;
+  border: 0;
+  position: relative;
+  z-index: 2;
+  background-color: transparent;
+  height: 100px;
+  line-height: 100px;
+}
+header.page-header .logo {
+  font-size: 1em;
+  display: block;
+}
+header.page-header .logo-bg,
+footer .logo-bg {
+  display: block;
+  height: 100px;
+  line-height: 100px;
+  background-image: url("img/logo.png");
+  background-repeat: no-repeat;
+  background-size: auto 50%;
+  background-position: left center;
+}
+header.page-header nav {
+  font-family: "Maison Neue Book", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+header.page-header nav .menu li a {
+  margin-left: 1.5em;
+  font-size: 0.85em;
+}
+header.page-header a {
+  color: #000;
+}
+
+body.home header.page-header a,
+#issue header.page-header a {
+  color: #FFF;
+}
+.nav > li > a:focus,
+.nav > li > a:hover {
+  background-color: transparent;
+}
+body.home header.page-header .logo-bg,
+#issue header.page-header .logo-bg {
+  background-image: url("img/logo-white.png");
+}
+
+footer#footer {
+  margin-top: 4em;
+  padding-bottom: 4em;
+  background: #FFF;
+  position: relative;
+  z-index: 100;
+}
+footer#footer > hr {
+  padding-bottom: 4em;
+}
+footer#footer .meta {
+  color: #999;
+}
+
+/* main content */
+#main h1 {
+  text-align: center;
+}
+
+article {
+  margin-bottom: 2em;
+}
+article > header {
+  text-align: center;
+  margin: 1.5em 0 2.5em 0;
+  width: 75%;
+}
+article > header .page-title {
+  margin: 0;
+}
+article .article-subtitle {
+  font-size: 1.75em;
+}
+
+.cards .card {
+  font-size: 0.85em;
+}
+.cards .card .img-container {
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+}
+.cards .card .img-container img {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+}
+.cards .card.card-issues {
+  height: 550px;
+}
+.cards .card.card-issues .img-container {
+  height: 175px;
+}
+.cards .card.card-report {
+  height: 350px;
+  padding: 0 0.75em;
+  margin: 1em 0;
+  border-bottom: 1px solid #E0E0E0;
+}
+.cards .card.card-report h3 {
+  margin-top: 0.5em;
+}
+.cards .card.card-report .meta {
+  line-height: 1.15;
+}
+.cards .card.card-report .meta-author {
+  font-family: "Maison Neue Bold", "Helvetica Neue Bold", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+.cards .card.card-interview {
+  height: 300px;
+}
+.cards .card.card-interview h3 {
+  margin: 0;
+  margin-top: 0.75em;
+  font-size: 1.25em;
+}
+.cards .card.card-interview .meta {
+  color: #999;
+}
+
+.cover {
+  margin: 0 -15px 3em -15px;
+}
+.cover .jumbotron {
+  height: 95vh;
+  background-size: cover;
+  background-position: center;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  margin-top: -100px;
+}
+.cover .jumbotron .jumbo-overlay {
+  height: 95vh;
+  margin-top: -100px;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+.cover .jumbotron .jumbo-container {
+  display: table;
+  height: 95vh;
+}
+.cover .jumbotron .jumbo-latest {
+  margin: auto;
+  width: 60%;
+  vertical-align: middle;
+  display: table-cell;
+}
+.cover .jumbotron h1 {
+  margin: 0.25em 0;
+  font-size: 10vh;
+  font-family: "Portrait Bold", Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+  color: #FFF;
+}
+.cover .jumbotron h1 a {
+  font-size: 10vh;
+  font-family: "Portrait Bold", Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+  color: #FFF;
+}
+.cover .jumbotron .meta {
+  color: #FFF;
+  font-size: 3vh;
+}
+.cover .nav-down {
+  margin-top: 3em;
+}
+.cover .nav-down a {
+  color: #FFF;
+  font-size: 2.5em;
+}
+.cover #tagline {
+  background: #E0E0E0;
+  height: 5vh;
+  line-height: 5vh;
+  text-align: center;
+}
+
+#issue .cover .jumbotron,
+#issue .cover .jumbo-overlay,
+#issue .cover .jumbo-container {
+  height: 50vh;
+}
+#issue .cover h1 {
+  font-size: 5vh;
+  margin: 0.15em 0;
+}
+#issue .cover h1 a {
+  font-size: 1em;
+}
+#issue .cover .meta {
+  font-size: 2vh;
+}
+
+/* issue-level table of content */
+.toc .toc-item {
+  margin: 1em 0;
+  padding: 0.5em 0;
+  border-bottom: 1px solid #E0E0E0;
+}
+.toc .toc-item:last-child {
+  border: 0;
+}
+.toc .toc-item .article-title_group {
+  display: block;
+  margin: 1.25em 0;
+  line-height: 1.5;
+}
+.toc .toc-item .article-title {
+  font-size: 1.25em;
+  margin: 0;
+}
+.toc .toc-item .article-subtitle {
+  font-size: 1em;
+}
+.toc .toc-item .meta {
+  font-size: 0.75em;
+  line-height: 1;
+}
+.toc .toc-item .meta-author {
+  font-family: "Maison Neue Bold", "Helvetica Neue Bold", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+/* article-level table of content */
+#article-toc-container {
+  height: 100%;
+  font-size: 0.85em;
+  top: 100px;
+  z-index: 1;
+  font-family: "Maison Neue Book", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 0.65em;
+}
+#article-toc-container #article-toc  {
+  max-width: 100%;
+  padding: 1em;
+}
+#article-toc-container ul, #article-toc-container ol {
+  list-style: none;
+  padding: 0;
+  position: fixed;
+  bottom: 10px;
+}
+#article-toc-container ul li, #article-toc-container ol li {
+  line-height: 1.15;
+}
+#article-toc-container ul li a, #article-toc-container ol li a {
+  color: #595959;
+}
+#article-toc-container ul li:first-child, #article-toc-container ol li:first-child {
+  font-family: "Maison Neue Bold", "Helvetica Neue Bold", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+#home section.container-fluid {
+  margin: 3em auto;
+  padding: 0 25px;
+}

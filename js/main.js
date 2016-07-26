@@ -1,4 +1,4 @@
-$ = jQuery.noConflict(true);
+$ = jQuery;
 
 var Erudit;
 Erudit = {

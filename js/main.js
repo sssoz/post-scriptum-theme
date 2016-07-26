@@ -1,3 +1,5 @@
+$ = jQuery.noConflict(true);
+
 var Erudit;
 Erudit = {
     init: function() {

@@ -1,14 +1,15 @@
 <?php get_header(); ?>
 
 <main id="main" class="container-fluid">
-  <h1><?php echo get_the_title(); ?></h1>
+  <h1><?php echo get_queried_object()->labels->name ?></h1>
   <hr/>
   <section class="container">
     <div class="cards">
 
       <?php
       $args = array(
-        'category_name' => 'compte-rendu',
+        'post_type' => 'comptes-rendus',
+        'post_status' => 'publish',
       );
       $loop = new WP_Query( $args );
       if ( $loop -> have_posts() ) : while ( $loop -> have_posts() ) : $loop -> the_post(); ?>

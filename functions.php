@@ -25,6 +25,8 @@
       wp_enqueue_style( 'custom', get_template_directory_uri() . '/style.css' );
 
       /* add scripts */
+      wp_enqueue_script( 'colourbrightness', get_template_directory_uri() . '/js/jquery.colourbrightness.min.js', array('jquery'), true );
+      wp_enqueue_script( 'smoothstate', get_template_directory_uri() . '/js/jquery.smoothState.js', array('jquery'), true );
       wp_enqueue_script( 'jquery-toc', get_template_directory_uri() . '/js/jquery.toc.min.js', array('jquery'), true );
       wp_enqueue_script( 'main', get_template_directory_uri() . '/js/main.js', array('jquery'), true );
 

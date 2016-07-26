@@ -155,14 +155,3 @@
       </section>
     </main>
     <?php get_footer(); ?>
-  </main>
-  <script>
-  $(document).ready(function(){
-    $('.page-header').colourBrightness();
-    $('#article-toc').toc();
-    $('#cover').smoothState();
-  });
-  </script>
-  <?php wp_footer(); ?>
-</body>
-</html>

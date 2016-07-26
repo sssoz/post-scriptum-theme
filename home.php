@@ -149,7 +149,7 @@
           </article>
 
           <div class="col-xs-12 meta text-right">
-            <small><em><a href="/post-scriptum/parutions">Voir toutes les parutions <span class="icon-arrow-right"></span></a></em></small>
+            <small><em><a href="parutions">Voir toutes les parutions <span class="icon-arrow-right"></span></a></em></small>
           </div>
         </div>
       </section>

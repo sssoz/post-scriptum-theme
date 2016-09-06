@@ -3,3 +3,29 @@ header.page-header nav .menu li a {
     padding-top: 0;
     padding-bottom: 0;
 }
+
+.single-comptes-rendus h1 {
+    font-size: 1.77em;
+}
+.single-comptes-rendus .meta-author {
+    font-size: 0.75em;
+    font-family: "Maison Neue Bold","Helvetica Neue Bold","Helvetica Neue","Helvetica","Arial",sans-serif;
+}
+.single-comptes-rendus .meta-affiliation {
+    font-size: 0.75em;
+}
+.single-comptes-rendus .meta-date {
+    font-size: 0.75em;
+}
+
+.single-entretiens h1 {
+    font-size: 1.77em;
+}
+.single-entretiens .meta-author {
+    font-size: 0.75em;
+    font-family: "Maison Neue Bold","Helvetica Neue Bold","Helvetica Neue","Helvetica","Arial",sans-serif;
+}
+.single-entretiens .meta-date {
+    font-size: 0.75em;
+}
+

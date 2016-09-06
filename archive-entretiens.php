@@ -5,26 +5,37 @@
   <hr/>
   <section class="container">
     <div class="cards row">
+
       <?php
       $args = array(
         'post_type' => 'entretiens',
         'post_status' => 'publish',
       );
       $loop = new WP_Query( $args );
-      if ( $loop -> have_posts() ) : while ( $loop -> have_posts() ) : $loop -> the_post(); ?>
+      if ( $loop->have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post(); ?>
+
       <article class="card card-interview col-md-3 col-sm-4" id="post-<?php the_ID(); ?>">
-        <div style="width: 100%; height: 150px;">
-          <img src="<?php the_field( "interview_photo" ); ?>" class="img-responsive"/>
-        </div>
+        <?php
+            $img = get_field('interview_photo');
+            $bg_style = 'background: %s; '.
+                        'background-repeat: no-repeat; '.
+                        'background-size: cover; ';
+            $bg = sprintf($bg_style, $img ? 'url('.$img['sizes']['large'].')' : 'black');
+        ?>
+        <a href="<?= the_permalink() ?>">
+            <div style="width: 100%; height: 150px; <?= $bg ?>"></div>
+        </a>
         <div class="card-interview-body">
-          <h3><a href="#"><?php the_title(); ?></a></h3>
-          <div class="meta meta-author"><?php the_field( "article_author" ); ?></div>
-          <div class="meta meta-date"><?php the_time('M Y'); ?></div>
+          <h3><a href="<?= the_permalink() ?>"><?php the_title(); ?></a></h3>
+          <div class="meta meta-author">Par <?php the_field( "article_author" ); ?></div>
+          <div class="meta meta-date"><?= get_the_date(); ?></div>
         </div>
       </article>
+
       <?php endwhile; else : ?>
         <p><?php _e( 'Sorry, no pages matched your criteria.' ); ?></p>
       <?php endif; ?>
+
     </div>
   </section>
 </main>

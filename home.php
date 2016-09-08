@@ -19,8 +19,11 @@
 
         $loop->the_post();
         $img = get_field('series_photo');
-        $bg = 'background: url('.$img['url'].')';
-
+        $bg_style = 'background: %s; '.
+                    'background-repeat: no-repeat; '.
+                    'background-position: center top; '.
+                    'background-size: cover; ';
+        $bg = sprintf($bg_style, $img ? 'url('.$img['url'].')' : 'black');
         ?>
 
         <div class="jumbotron text-center" style="<?= $bg ?>">

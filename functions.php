@@ -1,52 +1,46 @@
 <?php
 
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-    if ( ! isset( $content_width ) ) {
-        $content_width = 660;
-    }
+if ( ! isset( $content_width ) ) {
+    $content_width = 660;
+}
 
-    function ps_setup() {
+function ps_setup() {
+    add_theme_support('automatic-feed-links');
+    add_theme_support('title-tag');
 
-        add_theme_support('automatic-feed-links');
-        add_theme_support('title-tag');
+    // Register Custom Navigation Walker
+    require_once('wp_bootstrap_navwalker.php');
+    register_nav_menus(array(
+      'primary' => __( 'Primary Menu', 'post-scriptum' ),
+    ));
+}
+add_action('after_setup_theme', 'ps_setup');
 
-        // Register Custom Navigation Walker
-        require_once('wp_bootstrap_navwalker.php');
-        register_nav_menus( array(
-          'primary' => __( 'Primary Menu', 'post-scriptum' ),
-          ) );
-    }
+function ps_scripts() {
+  /* add styles */
+  wp_enqueue_style( 'bootstrap-core', get_template_directory_uri() . '/css/bootstrap.min.css' );
+  wp_enqueue_style( 'custom', get_template_directory_uri() . '/style.css' );
+  wp_enqueue_style( 'custom-extra', get_template_directory_uri() . '/style-extra.css' );
 
-    add_action('after_setup_theme', 'ps_setup');
+  /* add scripts */
+  wp_enqueue_script( 'colourbrightness', get_template_directory_uri() . '/js/jquery.colourbrightness.min.js', array('jquery'), true );
+  wp_enqueue_script( 'smoothstate', get_template_directory_uri() . '/js/jquery.smoothState.js', array('jquery'), true );
+  wp_enqueue_script( 'jquery-toc', get_template_directory_uri() . '/js/jquery.toc.min.js', array('jquery'), true );
+  wp_enqueue_script( 'main', get_template_directory_uri() . '/js/main.js', array('jquery'), true );
+}
+add_action('wp_enqueue_scripts', 'ps_scripts');
 
-    function ps_scripts() {
+function text_truncate($text, $words=140) {
+  $new = strip_tags($text);
+  $new = wordwrap($new, $words);
+  $new = explode("\n", $new);
 
-      /* add styles */
-      wp_enqueue_style( 'bootstrap-core', get_template_directory_uri() . '/css/bootstrap.min.css' );
-      wp_enqueue_style( 'custom', get_template_directory_uri() . '/style.css' );
-      wp_enqueue_style( 'custom-extra', get_template_directory_uri() . '/style-extra.css' );
+  if ( isset($new[0]) )
+    return $new[0] . '...';
+  return '';
+}
 
-      /* add scripts */
-      wp_enqueue_script( 'colourbrightness', get_template_directory_uri() . '/js/jquery.colourbrightness.min.js', array('jquery'), true );
-      wp_enqueue_script( 'smoothstate', get_template_directory_uri() . '/js/jquery.smoothState.js', array('jquery'), true );
-      wp_enqueue_script( 'jquery-toc', get_template_directory_uri() . '/js/jquery.toc.min.js', array('jquery'), true );
-      wp_enqueue_script( 'main', get_template_directory_uri() . '/js/main.js', array('jquery'), true );
-
-    }
-
-    add_action('wp_enqueue_scripts', 'ps_scripts');
-
-    function text_truncate($text, $words=140) {
-      $new = strip_tags($text);
-      $new = wordwrap($new, $words);
-      $new = explode("\n", $new);
-
-      if ( isset($new[0]) )
-        return $new[0] . '...';
-      return '';
-    }
-
- ?>

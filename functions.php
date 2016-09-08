@@ -36,6 +36,7 @@ add_action('wp_enqueue_scripts', 'ps_scripts');
 
 function text_truncate($text, $words=140) {
   $new = strip_tags($text);
+  $new = preg_replace("/\n/", " ", $new);
   $new = wordwrap($new, $words);
   $new = explode("\n", $new);
 

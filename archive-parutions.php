@@ -34,12 +34,7 @@
         <div class="meta">Parution <span class="meta-number">n° <?= the_field('series_number') ?></span></div>
         <h3><a href="<?= the_permalink() ?>"><?= the_title() ?></a></h3>
         <p class="meta meta-short_preview">
-          <?php 
-            $text = strip_tags(get_field('series_text'));
-            $text = wordwrap($text, 140);
-            $text = explode("\n", $text);
-            echo $text[0] . '...';
-          ?>
+          <?= text_truncate(get_field('series_text')); ?>
         </p>
         <div class="meta meta-date"><?= get_the_date('F Y') ?></div>
 

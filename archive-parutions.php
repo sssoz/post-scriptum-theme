@@ -26,7 +26,9 @@
         <div class="img-container">
           <a href="<?= the_permalink() ?>">
             <div style="width: 100%; height: 175px; <?= $bg ?>"></div>
-            <div class="img-banner-overlay"><?= the_field('overlay_text') ?></div>
+            <?php if ( $overlay = get_field('overlay_text') ) : ?>
+                <div class="img-banner-overlay"><?= $overlay ?></div>
+            <?php endif; ?>
           </a>
         </div>
         <div class="meta">Parution <span class="meta-number">n° <?= the_field('series_number') ?></span></div>

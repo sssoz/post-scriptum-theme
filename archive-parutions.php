@@ -21,7 +21,7 @@
             $bg_style = 'background: %s; '.
                         'background-repeat: no-repeat; '.
                         'background-size: cover; ';
-            $bg = sprintf($bg_style, $img ? 'url('.$img['sizes']['large'].')' : 'black');
+            $bg = sprintf($bg_style, $img ? 'url('.$img['sizes']['medium'].')' : 'black');
         ?>
         <div class="img-container">
           <a href="<?= the_permalink() ?>">

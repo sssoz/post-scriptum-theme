@@ -26,7 +26,7 @@
                 $image = get_field('news_img');
                 if( !empty($image) ):
               ?>
-                <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" class="img-responsive"/>
+                <img src="<?= $image['sizes']['large']; ?>" alt="<?= $image['alt']; ?>" class="img-responsive"/>
               <?php endif; ?>
             </a>
           </div>

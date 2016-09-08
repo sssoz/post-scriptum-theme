@@ -1,4 +1,9 @@
-<?php get_header(); ?>
+<?php
+
+$GLOBALS['BODY_ID'] = 'all-interviews';
+get_header();
+
+?>
 
 <main id="main" class="container-fluid">
   <h1><?php echo get_queried_object()->labels->name ?></h1>

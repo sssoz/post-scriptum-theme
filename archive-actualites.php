@@ -1,3 +1,9 @@
+<?php
+
+$GLOBALS['BODY_ID'] = 'all-news';
+get_header();
+
+?>
 <?php get_header(); ?>
 
 <main id="main" class="container-fluid">

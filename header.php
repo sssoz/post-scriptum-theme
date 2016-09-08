@@ -1,3 +1,10 @@
+<?php
+
+$body_id = isset( $GLOBALS['BODY_ID'] ) ?
+            'id="' . $GLOBALS['BODY_ID'] . '"' :
+            '';
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -41,7 +48,7 @@
   <link rel="canonical" href="http://www.post-scriptum.org/post-scriptum/">
   <?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?>>
+<body <?= $body_id ?> <?php body_class(); ?>>
   <header id="header" class="page-header container-fluid">
     <div class="row">
       <div class="col-md-4">
@@ -49,11 +56,6 @@
       </div>
       <nav class="col-md-8 text-right">
         <div class="menu collapse-navbar-collapse">
-          <!-- <a href="/post-scriptum/parutions/" class="menu-option">Parutions</a>
-          <a href="/post-scriptum/compte-rendus/" class="menu-option">Compte rendus</a>
-          <a href="/post-scriptum/entretiens/" class="menu-option">Entretiens</a>
-          <a href="/post-scriptum/actualites/" class="menu-option">Actualités</a>
-          <a href="/post-scriptum/a-propos/" class="menu-option">À propos</a> -->
           <?php
           wp_nav_menu( array(
             'menu'              => 'primary',

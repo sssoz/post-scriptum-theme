@@ -42,29 +42,43 @@ get_header();
     <nav class="col-md-6 col-md-offset-3 single-col">
       <h2>Table des matières</h2>
       <ol class="toc">
+        <?php
 
-        <li class="toc-item">
-          <div class="meta">
-            <div class="meta-author">__ author __</div>
-            <div class="meta-affiliation">__ affiliation __</div>
-          </div>
-          <a href="#" class="article-title_group">
-            <h3 class="article-title">__ article title __</h3>
-            <div class="article-subtitle"></div>
-          </a>
-        </li>
+          $args = array(
+            'post_type' => 'post',
+            'post_status' => 'publish',
+            'posts_per_page' => 999,
+            'offset' => 0,
+            'orderby' => 'title',
+            'order' => 'ASC',
+            'meta_key' => 'series_number',
+            'meta_value' => get_field('series_number'),
+          );
+          $loop = new WP_Query( $args );
 
-        <li class="toc-item">
-          <div class="meta">
-            <div class="meta-author">__ author __</div>
-            <div class="meta-affiliation">__ affiliation __</div>
-          </div>
-          <a href="#" class="article-title_group">
-            <h3 class="article-title">__ article title __</h3>
-            <div class="article-subtitle"></div>
-          </a>
-        </li>
+          if ( $loop->have_posts() ) :
+            while ( $loop->have_posts() ) :
+              $loop->the_post();
+              $img = get_field('news_img');
+              ?>
 
+              <li class="toc-item">
+                <div class="meta">
+                  <div class="meta-author"><?= get_field('article_author') ?></div>
+                  <div class="meta-affiliation"><?= get_field('article_affiliation') ?></div>
+                </div>
+                <a href="<?= the_permalink() ?>" class="article-title_group">
+                  <h3 class="article-title"><?= clean_title( get_the_title() ) ?></h3>
+                  <div class="article-subtitle"><?= get_field('article_subtitle') ?></div>
+                </a>
+              </li>
+
+              <?php
+            endwhile;
+            wp_reset_postdata();
+          endif;
+
+        ?>
       </ol>
     </nav>
 

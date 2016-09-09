@@ -4,6 +4,10 @@ $body_id = isset( $GLOBALS['BODY_ID'] ) ?
             'id="' . $GLOBALS['BODY_ID'] . '"' :
             '';
 
+$custom_title = isset( $GLOBALS['CUSTOM_TITLE'] ) ?
+            $GLOBALS['CUSTOM_TITLE'] :
+            '';
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -13,7 +17,11 @@ $body_id = isset( $GLOBALS['BODY_ID'] ) ?
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><?php 
     if (! is_home()) {
-      wp_title(' ');
+      if ($custom_title)
+        echo $custom_title;
+      else
+        wp_title(' ');
+
       echo ' | ';
     }
     bloginfo(' ');

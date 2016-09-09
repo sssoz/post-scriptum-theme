@@ -51,7 +51,7 @@ $references  = get_field('article_references');
         <hr />
 
         <?php if ($references) : ?>
-          <h3 id="bibliographie">Bibliographie</h3>
+          <h3 id="bibliographie">Références</h3>
           <?= get_field('article_references') ?>
         <?php endif; ?>
 

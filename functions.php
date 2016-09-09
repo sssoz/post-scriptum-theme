@@ -46,6 +46,6 @@ function text_truncate($text, $words=140) {
 }
 
 function clean_title($title) {
-  return preg_replace('/^\[.*\] /', '', $title);
+  return preg_replace('/^\[.*\]\s*/', '', $title);
 }
 

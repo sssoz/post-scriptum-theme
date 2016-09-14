@@ -118,7 +118,7 @@
   </section>
 
   <section id="recent-issues" class="container">
-    <h2><a href="#" class="menu-option">Parutions</a></h2>
+    <h2><a href="#" class="menu-option">Derniers numéros</a></h2>
 
     <!-- Avant-dernière parution -->
 

@@ -564,6 +564,7 @@ blockquote {
   margin: 1em 0 1.5em 1.5em;
   padding: 0;
   padding-left: 1.5em;
+  border: 0;
   border-left: 1px solid #999;
 }
 blockquote em {
@@ -1308,4 +1309,33 @@ article .article-subtitle {
 #home section.container-fluid {
   margin: 3em auto;
   padding: 0 25px;
+}
+
+.notes {
+  text-align: left;
+}
+
+@media print {
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+  }
+  table, figure {
+    page-break-inside: avoid;
+  }
+  nav,
+  #article-toc-container {
+    display: none;
+  }
+  header a[href]:after,
+  footer a[href]:after,
+  .notes a[href]:after {
+    content: none !important;
+  }
+  article {
+    margin: 0 10%;
+  }
+  @page {
+    margin: 15cm 0;
+    size: A4 portrait;
+  }
 }

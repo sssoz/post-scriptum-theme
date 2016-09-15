@@ -1120,7 +1120,7 @@ article {
 article > header {
   text-align: center;
   margin: 1.5em 0 2.5em 0;
-  width: 75%;
+  width: 100%;
 }
 article > header .page-title {
   margin: 0;

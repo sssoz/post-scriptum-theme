@@ -49,3 +49,49 @@ function clean_title($title) {
   return preg_replace('/^\[.*\]\s*/', '', $title);
 }
 
+$GLOBALS['parse_references_top_count'] = 1;
+
+function parse_references_top($content) {
+  $template = 
+    '<span id="note-top-%s"></span>'.
+    '<a href="#note-%s">'.
+      '%s'.
+    '</a>';
+
+  $content = preg_replace_callback(
+    '/(\[\d{1,2}\])/', 
+    function($match) use ($template) {
+      $count = &$GLOBALS['parse_references_top_count'];
+      $text = sprintf($template, $count, $count, $match[0]);
+      $count++;
+      return $text;
+    },
+    $content
+  );
+
+  return $content;
+}
+
+$GLOBALS['parse_references_bottom_count'] = 1;
+
+function parse_references_bottom($content) {
+  $template = 
+    '<span id="note-%s"></span>'.
+    '<a href="#note-top-%s">'.
+      '%s'.
+    '</a>';
+
+  $content = preg_replace_callback(
+    '/(\[\d{1,2}\])/', 
+    function($match) use ($template) {
+      $count = &$GLOBALS['parse_references_bottom_count'];
+      $text = sprintf($template, $count, $count, $match[0]);
+      $count++;
+      return $text;
+    },
+    $content
+  );
+
+  return $content;
+}
+

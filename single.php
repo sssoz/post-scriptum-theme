@@ -8,6 +8,7 @@ $affiliation = get_field('article_affiliation');
 $abstract_fr = get_field('abstract_fr');
 $abstract_en = get_field('abstract_en');
 $references  = get_field('article_references');
+$references_title  = get_field('article_references_title');
 
 ?>
 
@@ -46,13 +47,18 @@ $references  = get_field('article_references');
 
         <hr />
 
-        <?= get_field('article_text') ?>
+        <?= parse_references_top( get_field('article_text') ) ?>
 
         <hr />
 
         <?php if ($references) : ?>
-          <h3 id="bibliographie">Références</h3>
-          <?= get_field('article_references') ?>
+          <?php if ($references_title) : ?>
+            <h3 id="bibliographie"><?= $references_title ?></h3>
+          <?php else : ?>
+            <h3 id="bibliographie">Références</h3>
+          <?php endif; ?>
+
+          <?= parse_references_bottom( $references ) ?>
         <?php endif; ?>
 
 

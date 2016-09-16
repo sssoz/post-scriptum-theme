@@ -95,3 +95,20 @@ function parse_references_bottom($content) {
   return $content;
 }
 
+function series_get_permalink($number) {
+  $series_permalink = null;
+
+  $series = get_posts(array(
+    'numberposts' => 1,
+    'post_type'   => 'parutions',
+    'meta_key'    => 'series_number',
+    'meta_value'  => $number, 
+  ));
+
+  if ($series) {
+    $series_permalink = get_post_permalink( $series[0]->ID );
+  }
+
+  return $series_permalink;
+}
+

@@ -1,14 +1,20 @@
 <?php 
 
-$GLOBALS['CUSTOM_TITLE'] = clean_title( get_the_title() );
+$title_clean        = clean_title( get_the_title() );
+$series_number      = get_field('series_number');
+$affiliation        = get_field('article_affiliation');
+$abstract_fr        = get_field('abstract_fr');
+$abstract_en        = get_field('abstract_en');
+$references         = get_field('article_references');
+$references_title   = get_field('article_references_title');
+
+// Get series permalink
+$series_permalink = series_get_permalink( $series_number ) ?: '#';
+
+// Set page title
+$GLOBALS['CUSTOM_TITLE'] = $title_clean;
 
 get_header(); 
-
-$affiliation = get_field('article_affiliation');
-$abstract_fr = get_field('abstract_fr');
-$abstract_en = get_field('abstract_en');
-$references  = get_field('article_references');
-$references_title  = get_field('article_references_title');
 
 ?>
 
@@ -19,7 +25,7 @@ $references_title  = get_field('article_references_title');
   <section class="row">
     <article>
       <header class="container-fluid">
-        <h1 class="page-title"><?= clean_title( get_the_title() ) ?></h1>
+        <h1 class="page-title"><?= $title_clean ?></h1>
         <h2 class="meta article-subtitle"><?= get_field('article_subtitle')  ?></h2>
         <div class="meta"><?= get_field('article_author') ?><?= ($affiliation ? "<br> $affiliation" : "") ?></div>
       </header>
@@ -32,7 +38,9 @@ $references_title  = get_field('article_references_title');
 
       <div id="article-content" class="col-md-6">
         <div class="text-center">
-          <p class="meta"><small><em>Cet article est apparu dans notre parution n° <?= get_field('series_number') ?>.</em></small></p>
+          <a href="<?= $series_permalink ?>">
+            <p class="meta"><small><em>Cet article est apparu dans notre parution n° <?= $series_number ?>.</em></small></p>
+          </a>
         </div>
 
         <?php if ($abstract_fr) : ?>

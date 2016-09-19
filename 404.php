@@ -46,14 +46,20 @@
 
           while ( $loop->have_posts() ) {
             $loop->the_post();
+
+            // Match regexp with permalink
             if ( preg_match("/$split/", get_the_permalink()) ) {
               if (!$matching_series) {
                 $matching_series .= '<p><strong>Parutions similaires : </strong></p>';
+                $matching_series .= '<ul class="list-suggestions">';
               }
-              $matching_series .= '<p><a href="'.get_the_permalink().'">'.get_the_title().'</a></p>';
+              $matching_series .= '<li><a href="'.get_the_permalink().'">'.get_the_title().'</a></li>';
               $total_matches++;
               $last_match_permalink = get_the_permalink();
             }
+          }
+          if ($matching_series) {
+            $matching_series .= '</ul>';
           }
 
           echo $matching_series;
@@ -75,14 +81,20 @@
 
           while ( $loop->have_posts() ) {
             $loop->the_post();
+
+            // Match regexp with permalink
             if ( preg_match("/$split/", get_the_permalink()) ) {
               if (!$matching_posts) {
                 $matching_posts .= '<p><strong>Articles similaires : </strong></p>';
+                $matching_posts .= '<ul class="list-suggestions">';
               }
-              $matching_posts .= '<p><a href="'.get_the_permalink().'">'.get_the_title().'</a></p>';
+              $matching_posts .= '<li><a href="'.get_the_permalink().'">'.get_the_title().'</a></li>';
               $total_matches++;
               $last_match_permalink = get_the_permalink();
             }
+          }
+          if ($matching_posts) {
+            $matching_series .= '</ul>';
           }
 
           echo $matching_posts;

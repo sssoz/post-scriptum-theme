@@ -112,9 +112,10 @@ function parse_references_bottom($content) {
   return $content;
 }
 
-function series_get_permalink($number) {
-  $series_permalink = null;
-
+/*
+ * Parutions: get post id from field series_number
+ */
+function series_get_id($number) {
   $series = get_posts(array(
     'numberposts' => 1,
     'post_type'   => 'parutions',
@@ -123,9 +124,9 @@ function series_get_permalink($number) {
   ));
 
   if ($series) {
-    $series_permalink = get_post_permalink( $series[0]->ID );
+    return $series[0]->ID;
   }
 
-  return $series_permalink;
+  return null;
 }
 

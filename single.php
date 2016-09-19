@@ -9,7 +9,8 @@ $references         = get_field('article_references');
 $references_title   = get_field('article_references_title');
 
 // Get series permalink
-$series_permalink = series_get_permalink( $series_number ) ?: '#';
+$series_id = series_get_id( $series_number );
+$series_permalink = get_post_permalink( $series_id );
 
 // Set page title
 $GLOBALS['CUSTOM_TITLE'] = $title_clean;

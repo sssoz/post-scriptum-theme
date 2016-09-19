@@ -38,6 +38,8 @@
           'post_status' => 'publish',
           'posts_per_page' => -1,
           'offset' => 0,
+          'orderby' => 'title',
+          'order' => 'ASC',
         );
         $loop = new WP_Query( $args );
 
@@ -73,6 +75,8 @@
           'post_status' => 'publish',
           'posts_per_page' => -1,
           'offset' => 0,
+          'orderby' => 'title',
+          'order' => 'ASC',
         );
         $loop = new WP_Query( $args );
 

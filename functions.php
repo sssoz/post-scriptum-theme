@@ -1,8 +1,15 @@
 <?php
 
+/*
+ * Display errors
+ */
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+
+/*
+ * Theme setup
+ */
 
 if ( ! isset( $content_width ) ) {
     $content_width = 660;
@@ -34,6 +41,9 @@ function ps_scripts() {
 }
 add_action('wp_enqueue_scripts', 'ps_scripts');
 
+/*
+ * Truncate text to a specific length
+ */
 function text_truncate($text, $words=140) {
   $new = strip_tags($text);
   $new = preg_replace("/\n/", " ", $new);
@@ -45,9 +55,16 @@ function text_truncate($text, $words=140) {
   return '';
 }
 
+/*
+ * Clean article titles
+ */
 function clean_title($title) {
   return preg_replace('/^\[.*\]\s*/', '', $title);
 }
+
+/*
+ * Parse reference notation for article body and footer
+ */
 
 $GLOBALS['parse_references_top_count'] = 1;
 

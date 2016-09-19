@@ -13,7 +13,8 @@ get_header();
 
       <?php
       $args = array(
-        'post_type' => 'entretiens',
+        'post_type' => ['post', 'entretiens'],
+        'category_name' => 'entretiens',
         'post_status' => 'publish',
       );
       $loop = new WP_Query( $args );
@@ -22,6 +23,12 @@ get_header();
       <article class="card card-interview col-md-3 col-sm-4" id="post-<?php the_ID(); ?>">
         <?php
             $img = get_field('interview_photo');
+            $number = get_field('series_number');
+            if (!$img && $number) {
+              $id = series_get_id($number);
+              $img = get_field('series_photo', $id);
+            }
+
             $bg_style = 'background: %s; '.
                         'background-repeat: no-repeat; '.
                         'background-size: cover; ';
@@ -31,9 +38,9 @@ get_header();
             <div style="width: 100%; height: 150px; <?= $bg ?>"></div>
         </a>
         <div class="card-interview-body">
-          <h3><a href="<?= the_permalink() ?>"><?php the_title(); ?></a></h3>
+          <h3><a href="<?= the_permalink() ?>"><?= clean_title( get_the_title() ); ?></a></h3>
           <div class="meta meta-author">Par <?php the_field( "article_author" ); ?></div>
-          <div class="meta meta-date"><?= get_the_date(); ?></div>
+          <div class="meta meta-date"><?= get_the_date('F Y'); ?></div>
         </div>
       </article>
 

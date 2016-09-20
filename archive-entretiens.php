@@ -22,11 +22,14 @@ get_header();
 
       <article class="card card-interview col-md-3 col-sm-4" id="post-<?php the_ID(); ?>">
         <?php
+            $series_date = false;
+
             $img = get_field('interview_photo');
             $number = get_field('series_number');
             if (!$img && $number) {
               $id = series_get_id($number);
               $img = get_field('series_photo', $id);
+              $series_date = get_the_date('F Y', $id);
             }
 
             $bg_style = 'background: %s; '.
@@ -40,7 +43,7 @@ get_header();
         <div class="card-interview-body">
           <h3><a href="<?= the_permalink() ?>"><?= clean_title( get_the_title() ); ?></a></h3>
           <div class="meta meta-author">Par <?php the_field( "article_author" ); ?></div>
-          <div class="meta meta-date"><?= get_the_date('F Y'); ?></div>
+          <div class="meta meta-date"><?= ($series_date ? $series_date : get_the_date('F Y')); ?></div>
         </div>
       </article>
 

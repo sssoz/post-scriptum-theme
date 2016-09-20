@@ -13,7 +13,8 @@ get_header();
 
       <?php
       $args = array(
-        'post_type' => 'comptes-rendus',
+        'post_type' => ['post', 'comptes-rendus'],
+        'category_name' => 'compte-rendus',
         'post_status' => 'publish',
       );
       $loop = new WP_Query( $args );
@@ -22,7 +23,7 @@ get_header();
       <article class="card card-report col-md-4 col-sm-6" id="post-<?php the_ID(); ?>">
           <div class="meta meta-author"><?php the_field( "article_author" ); ?></div>
           <div class="meta meta-affiliation"><?php the_field( "article_affiliation" ); ?></div>
-          <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+          <h3><a href="<?php the_permalink(); ?>"><?= clean_title( get_the_title() ); ?></a></h3>
       </article>
 
       <?php endwhile; else : ?>

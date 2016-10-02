@@ -1301,12 +1301,13 @@ article .article-subtitle {
   padding: 0;
   position: fixed;
   bottom: 10px;
+  width: 20%;
 }
 #article-toc-container ul li, #article-toc-container ol li {
   line-height: 1.15;
 }
 #article-toc-container ul li a, #article-toc-container ol li a {
-  color: #595959;
+  color: #AFAFAF;
 }
 #article-toc-container ul li:first-child, #article-toc-container ol li:first-child {
   font-family: "Maison Neue Bold", "Helvetica Neue Bold", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
@@ -1372,4 +1373,3 @@ article .article-subtitle {
 .single-entretiens .meta-date {
     font-size: 0.75em;
 }
-

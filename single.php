@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $title_clean        = clean_title( get_the_title() );
 $series_number      = get_field('series_number');
@@ -15,7 +15,7 @@ $series_permalink = get_post_permalink( $series_id );
 // Set page title
 $GLOBALS['CUSTOM_TITLE'] = $title_clean;
 
-get_header(); 
+get_header();
 
 ?>
 
@@ -40,8 +40,21 @@ get_header();
       <div id="article-content" class="col-md-6">
         <div class="text-center">
           <a href="<?= $series_permalink ?>">
-            <p class="meta"><small><em>Cet article est apparu dans notre parution n° <?= $series_number ?>.</em></small></p>
+            <p class="meta"><small><em>N° <?= $series_number ?></em></small></p>
           </a>
+          <div id="share-menu">
+            <div id="share-menu-content">
+              <a href="#" class="share-fb">
+                <span class='icon-facebook'></span>
+              </a>
+              <a href="#" class="share-twitter" target="_blank">
+                <span class='icon-twitter'></span>
+              </a>
+              <a href="#" class="print-pdf" target="_blank">
+                <span class='icon-print'></span>
+              </a>
+            </div>
+          </div>
         </div>
 
         <?php if ($abstract_fr) : ?>

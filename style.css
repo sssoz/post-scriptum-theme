@@ -1061,15 +1061,17 @@ header.page-header .logo {
   font-size: 1em;
   display: block;
 }
+
 header.page-header .logo-bg,
 footer .logo-bg {
   display: block;
-  height: 100px;
-  line-height: 100px;
-  background-image: url("img/logo.png");
-  background-repeat: no-repeat;
-  background-size: auto 50%;
-  background-position: left center;
+  height: 100px !important;
+  line-height: 100px !important;
+  background-image: url("img/logo.png") !important;
+  background-repeat: no-repeat !important;
+  background-size: auto 50% !important;
+  background-position: left center !important;
+  -webkit-print-color-adjust: exact;
 }
 header.page-header nav {
   font-family: "Maison Neue Book", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
@@ -1122,6 +1124,7 @@ footer#footer .meta {
 
 article {
   margin-bottom: 2em;
+  text-align: justify;
 }
 article > header {
   text-align: center;

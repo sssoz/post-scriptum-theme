@@ -841,7 +841,6 @@ footer#footer .meta {
 
 article {
   margin-bottom: 2em;
-  text-align: justify;
 }
 article > header {
   text-align: center;
@@ -850,6 +849,7 @@ article > header {
 }
 article > header .page-title {
   margin: 0;
+  font-size: 2em;
 }
 article .article-subtitle {
   font-size: 1.75em;
@@ -972,6 +972,10 @@ article .article-subtitle {
 }
 #issue .cover .meta {
   font-size: 2vh;
+}
+#article-intro p,
+#article-content {
+  text-align: justify;
 }
 
 /* issue-level table of content */
